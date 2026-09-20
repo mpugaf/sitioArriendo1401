@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Departamento con terraza en General Jofré — arriendo</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#hero" class="header__logo" data-nav-link data-target="hero">Lo encontraste</a>
+      <button class="header__button" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+      <nav class="nav" id="nav">
+        <a href="#la-propiedad" data-nav-link data-target="la-propiedad">La propiedad</a>
+        <a href="#galeria" data-nav-link data-target="galeria">Galería</a>
+        <a href="#ubicacion" data-nav-link data-target="ubicacion">Ubicación</a>
+        <a href="#contacto" data-nav-link data-target="contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="scroll-wrap" id="scrollWrap">
+      <div class="scroll-wrap__inner">
+
+        <section class="scroll-wrap__item panel" id="hero" data-clip>
+          <img class="panel__img" data-cloudinary-id="Terraza1_wbyfek" data-fallback="/placeholders/hero.svg" alt="Terraza privada de 35 m² con vista al Cerro San Cristóbal" />
+          <div class="panel__text">
+            <h1>Departamento con terraza en General Jofré</h1>
+            <p>Terraza privada de 35 m² con vista al Cerro San Cristóbal, a pasos del Metro Parque Bustamante.</p>
+          </div>
+        </section>
+
+        <section class="scroll-wrap__item panel" id="la-propiedad">
+          <img class="panel__img" data-cloudinary-id="Living1_npol84" data-fallback="/placeholders/quienes-somos.svg" alt="Living con salida directa a la terraza" />
+          <div class="panel__text">
+            <h2>Sobre la propiedad</h2>
+            <p>
+              Departamento de 1 dormitorio distribuido en 2 ambientes, con el living y el dormitorio en
+              espacios independientes, en el límite entre Santiago Centro y Providencia. Su gran atractivo
+              es una terraza privada de 35 m² — más extensa que el propio interior — con vista despejada
+              al Cerro San Cristóbal. Cuenta con cocina equipada, living-comedor con salida directa al
+              exterior, dormitorio y baño completo, e incluye bodega. Edificio con portería 24/7, gimnasio,
+              lavandería y sala de eventos disponibles para residentes.
+            </p>
+
+            <div class="price-box">
+              <span class="price-box__label">Arriendo mensual</span>
+
+              <div id="priceLocked" class="price-box__locked">
+                <span class="price-box__placeholder">$ ···.···</span>
+                <div class="price-box__progress">
+                  <div id="priceProgressBar" class="price-box__progress-fill"></div>
+                </div>
+                <p id="priceProgressText" class="price-box__hint">0 / 7 fotos — recorre la galería para conocer el precio</p>
+              </div>
+
+              <div id="priceUnlocked" class="price-box__unlocked hidden">
+                <span class="price-box__amount">$460.000<small>/mes</small></span>
+                <p class="price-box__badge">Incluye bodega</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scroll-wrap__item panel panel--group" id="galeria">
+          <div class="panel__text panel__text--intro">
+            <h2>Galería</h2>
+            <p>Un recorrido completo: terraza, cocina, living, dormitorio y baño.</p>
+          </div>
+          <div class="panel__cards">
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Terraza1_wbyfek" data-fallback="/placeholders/trabajo-1.svg" alt="Terraza privada de 35 m² con vista al Cerro San Cristóbal" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Terraza" />
+              <h3>Terraza</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Terraza3_fxj97f" data-fallback="/placeholders/trabajo-1.svg" alt="Terraza, otro ángulo" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Terraza" />
+              <h3>Terraza</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Cocina1_qmgwwl" data-fallback="/placeholders/trabajo-2.svg" alt="Cocina equipada" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Cocina" />
+              <h3>Cocina</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Living1_npol84" data-fallback="/placeholders/quienes-somos.svg" alt="Living con salida directa a la terraza" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Living" />
+              <h3>Living</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Living2_jicttw" data-fallback="/placeholders/blog.svg" alt="Living, ángulo alternativo" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Living" />
+              <h3>Living</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="Pieza1_drhgxw" data-fallback="/placeholders/trabajo-3.svg" alt="Dormitorio" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Dormitorio" />
+              <h3>Dormitorio</h3>
+            </article>
+            <article class="card">
+              <img class="card__img" data-cloudinary-id="baño1_zriy8e" data-fallback="/placeholders/contacto.svg" alt="Baño completo" data-zoomable tabindex="0" role="button" aria-label="Ampliar foto: Baño" />
+              <h3>Baño</h3>
+            </article>
+          </div>
+        </section>
+
+        <section class="scroll-wrap__item panel" id="ubicacion">
+          <img class="panel__img" data-cloudinary-id="Living2_jicttw" data-fallback="/placeholders/blog.svg" alt="Living, ángulo alternativo" />
+          <div class="panel__text">
+            <h2>Ubicación</h2>
+            <p>
+              Gral. Jofré 67, Santiago, Región Metropolitana — a menos de tres cuadras del Metro Parque
+              Bustamante (Línea 5) y del parque homónimo. El sector está rodeado de restaurantes,
+              ciclovías, áreas verdes, centros culturales, clínicas y supermercados.
+            </p>
+          </div>
+        </section>
+
+        <section class="scroll-wrap__item panel" id="contacto">
+          <img class="panel__img" data-cloudinary-id="Terraza3_fxj97f" data-fallback="/placeholders/contacto.svg" alt="Terraza privada, otro ángulo" />
+          <div class="panel__text">
+            <h2>Contacto</h2>
+            <p>Disponible ahora. Escríbenos y coordinamos una visita.</p>
+            <form class="contact-form">
+              <input type="text" placeholder="Nombre" />
+              <input type="email" placeholder="Email" />
+              <textarea placeholder="Mensaje" rows="4"></textarea>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <button id="btnBackToHome" class="back-to-home invisible" aria-label="Volver al inicio">↺</button>
+
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+      <button id="lightboxClose" class="lightbox__close" aria-label="Cerrar">×</button>
+      <button id="lightboxPrev" class="lightbox__nav lightbox__nav--prev" aria-label="Foto anterior">‹</button>
+      <img id="lightboxImg" class="lightbox__img" src="" alt="" />
+      <button id="lightboxNext" class="lightbox__nav lightbox__nav--next" aria-label="Foto siguiente">›</button>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
