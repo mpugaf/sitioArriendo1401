@@ -204,3 +204,41 @@ navToggle.addEventListener('click', () => {
 })
 
 backToHomeBtn.addEventListener('click', () => goToSection('hero'))
+
+// Formulario de contacto → backend de envío de correo (server/)
+const contactForm = document.getElementById('contactForm')
+const contactApiUrl = '/api/contact'
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const statusEl = contactForm.querySelector('.contact-form__status')
+  const submitBtn = contactForm.querySelector('button[type="submit"]')
+  const data = Object.fromEntries(new FormData(contactForm).entries())
+
+  submitBtn.disabled = true
+  statusEl.textContent = 'Enviando...'
+  statusEl.className = 'contact-form__status'
+
+  try {
+    const res = await fetch(contactApiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    const json = await res.json()
+
+    if (json.ok) {
+      statusEl.textContent = '¡Mensaje enviado! Revisa tu correo para la confirmación.'
+      statusEl.classList.add('contact-form__status--ok')
+      contactForm.reset()
+    } else {
+      statusEl.textContent = json.error || 'No se pudo enviar el mensaje.'
+      statusEl.classList.add('contact-form__status--error')
+    }
+  } catch (err) {
+    statusEl.textContent = 'No se pudo conectar con el servidor. Intenta más tarde.'
+    statusEl.classList.add('contact-form__status--error')
+  } finally {
+    submitBtn.disabled = false
+  }
+})

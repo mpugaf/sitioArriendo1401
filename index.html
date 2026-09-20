@@ -115,11 +115,13 @@
           <div class="panel__text">
             <h2>Contacto</h2>
             <p>Disponible ahora. Escríbenos y coordinamos una visita.</p>
-            <form class="contact-form">
-              <input type="text" placeholder="Nombre" />
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Mensaje" rows="4"></textarea>
+            <form id="contactForm" class="contact-form" novalidate>
+              <input type="text" name="name" placeholder="Nombre" required minlength="2" />
+              <input type="email" name="email" placeholder="Email" required />
+              <textarea name="message" placeholder="Mensaje" rows="4" required minlength="10"></textarea>
+              <input type="text" name="website" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <button type="submit">Enviar</button>
+              <p class="contact-form__status" aria-live="polite"></p>
             </form>
           </div>
         </section>
