@@ -10,6 +10,7 @@ const PROPERTY = {
 const schema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email().max(200),
+  phone: z.string().regex(/^[0-9+()\-\s]{6,30}$/).optional().or(z.literal('')),
   message: z.string().min(10).max(2000),
   website: z.string().optional(), // honeypot
 });
@@ -37,7 +38,7 @@ function isRateLimited(ip) {
 }
 
 // ── Email HTML ───────────────────────────────────────────────────────────
-function buildEmailHtml({ name, email, message }) {
+function buildEmailHtml({ name, email, phone, message }) {
   const safeMessage = message.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   return `<!DOCTYPE html>
@@ -89,7 +90,13 @@ function buildEmailHtml({ name, email, message }) {
                          color:#4d7086;font-size:13px;">Correo</td>
               <td style="padding:8px 0;border-bottom:1px solid #d6ecf7;
                          color:#0b2a3d;font-size:13px;font-weight:500;">${email}</td>
-            </tr>
+            </tr>${phone ? `
+            <tr>
+              <td style="padding:8px 0;border-bottom:1px solid #d6ecf7;
+                         color:#4d7086;font-size:13px;">Teléfono</td>
+              <td style="padding:8px 0;border-bottom:1px solid #d6ecf7;
+                         color:#0b2a3d;font-size:13px;font-weight:500;">${phone}</td>
+            </tr>` : ''}
             <tr>
               <td colspan="2" style="padding:12px 0 0;">
                 <span style="display:block;color:#4d7086;font-size:13px;margin-bottom:8px;">
@@ -140,7 +147,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Datos inválidos.', details: parsed.error.flatten() });
   }
 
-  const { name, email, message, website } = parsed.data;
+  const { name, email, phone, message, website } = parsed.data;
 
   // Honeypot: el campo "website" solo lo rellena un bot
   if (website) {
@@ -164,7 +171,7 @@ export default async function handler(req, res) {
       bcc: process.env.OWNER_EMAIL,
       replyTo: process.env.GMAIL_USER,
       subject: `Confirmación de contacto - ${PROPERTY.title}`,
-      html: buildEmailHtml({ name, email, message }),
+      html: buildEmailHtml({ name, email, phone, message }),
     });
 
     return res.status(200).json({ ok: true });

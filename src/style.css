@@ -397,6 +397,48 @@ body {
   cursor: not-allowed;
   transform: none;
 }
+.broker-pitch {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  max-width: 340px;
+  background: var(--color-bg-soft);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 12px;
+}
+.broker-pitch__price {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+.broker-pitch__price small {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  margin-left: 2px;
+}
+.broker-pitch__price span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+.broker-pitch__quote {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+.broker-pitch__sign {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+@media (max-width: 1079px) {
+  .broker-pitch { max-width: 100%; }
+}
 .contact-form__honeypot {
   position: absolute !important;
   width: 1px; height: 1px;
